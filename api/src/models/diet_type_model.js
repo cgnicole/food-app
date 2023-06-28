@@ -10,6 +10,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: DataTypes.UUID4,
         unique: true,
+        primarykey: true,
       },
 
       name: {
