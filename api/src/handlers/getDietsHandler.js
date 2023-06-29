@@ -10,7 +10,7 @@ const getDietsHandler = async (req, res) => {
     const allDiets = await getAllDietsController();
     res.status(200).json(allDiets);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: "hola" });
   }
 };
 
