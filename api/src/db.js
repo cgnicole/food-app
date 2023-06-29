@@ -42,6 +42,8 @@ const { Recipe, Diet_type } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
+// relacion de modelos
+
 // UNA RECETA PUEDE TENER MUCHOS TIPOS DE DIETAS Y LAS DIETAS PUEDEN ESTAS EN MUCHAS RECETAS
 
 Recipe.hasMany(Diet_type);
