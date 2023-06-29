@@ -8,15 +8,21 @@ module.exports = (sequelize) => {
     "recipe",
     {
       id: {
+        // UUID se utiliza como medida de seguridaad parala generación de identificadores únicos y aleatorios.
         type: DataTypes.UUID,
         allowNull: false,
+        // primarykey especifica que  "id" es la clave primaria de la tabla. es un valor único que se utiliza para distinguir cada registro en una tabla de manera unica
+
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
+        // unique indica que los valores del campo id deben ser unicos en la tabla
         unique: true,
       },
 
       name: {
         type: DataTypes.STRING,
+
+        //Cuando "allowNull" se establece en "false", significa que el campo no permite valores nulos
         allowNull: false,
       },
 
@@ -42,6 +48,7 @@ module.exports = (sequelize) => {
       },
     },
     {
+      // timestamps es para que no nos muestre el paso a paso de lo que se esta realizando en la terminal
       timestamps: false,
     }
   );

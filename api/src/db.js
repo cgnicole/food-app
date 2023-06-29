@@ -15,7 +15,8 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-// Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
+// Lee todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
+// se quieren los modelos y especifica que se agregen sin el .js
 fs.readdirSync(path.join(__dirname, "/models"))
   .filter(
     (file) =>
@@ -25,7 +26,7 @@ fs.readdirSync(path.join(__dirname, "/models"))
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
   });
 
-// Injectamos la conexion (sequelize) a todos los modelos
+// Injectamos la conexion (sequelize) a todos los modelos.
 modelDefiners.forEach((model) => model(sequelize));
 // Capitalizamos los nombres de los modelos ie: product => Product
 let entries = Object.entries(sequelize.models);
@@ -42,9 +43,7 @@ const { Recipe, Diet_type } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-// relacion de modelos
-
-// UNA RECETA PUEDE TENER MUCHOS TIPOS DE DIETAS Y LAS DIETAS PUEDEN ESTAS EN MUCHAS RECETAS
+// relacion de modelos, UNA RECETA PUEDE TENER MUCHOS TIPOS DE DIETAS Y LAS DIETAS PUEDEN ESTAS EN MUCHAS RECETAS
 
 Recipe.hasMany(Diet_type);
 Diet_type.hasMany(Recipe);

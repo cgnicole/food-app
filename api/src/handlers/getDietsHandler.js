@@ -1,6 +1,9 @@
 const getAllDietsController = require("../controllers/getDietsControllers");
 
-// manejo del controller
+// archivo de procesamiento de errores
+// "handlers" (manejadores) de los controladores (controllers)
+// se realizo una funcion asincrona
+// await palabra clave que indica que se esta realizando una funcion asincrona o deve devolver una promesa
 
 const getDietsHandler = async (req, res) => {
   try {
