@@ -47,8 +47,8 @@ const { Recipe, Diet_type } = sequelize.models;
 
 // relacion de modelos, UNA RECETA PUEDE TENER MUCHOS TIPOS DE DIETAS Y LAS DIETAS PUEDEN ESTAS EN MUCHAS RECETAS
 
-Recipe.hasMany(Diet_type);
-Diet_type.hasMany(Recipe);
+Recipe.belongsToMany(Diet_type, { through: "recipe_diet" });
+Diet_type.belongsToMany(Recipe, { through: "recipe_diet" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
