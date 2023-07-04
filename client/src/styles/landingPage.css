@@ -1,0 +1,55 @@
+.landing-page {
+  background-image: url("https://img.freepik.com/free-vector/collection-ingredients-blackboard_23-2148678863.jpg?w=1480&t=st=1688437447~exp=1688438047~hmac=b54f2eb5efb2bed1d5cd9bcb205995ca67d03b17265a9dfbe6dd54af49207d07");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 100vh;
+  display: flex;
+  font-size: 25px;
+  justify-content: flex-end;
+}
+
+.hola {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(240, 248, 255, 0.829);
+
+  width: 500px;
+}
+.button {
+  margin: 0 auto; /* Centrar el botón horizontalmente */
+  display: block;
+  font-family: Monaco, sans-serif;
+  font-weight: 900;
+  font-size: 21px;
+  color: #000000;
+  background-color: #3e4a4b;
+  padding: 11px 45px;
+  border: solid #88b38c 4px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  text-decoration: none;
+  color: white;
+}
+
+.button:hover {
+  transition: 1000ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #e25766;
+  border: solid 4px #88b38c;
+  color: #3e4a4b;
+}
+
+.textlanding {
+  font-family: Monaco, sans-serif;
+  font-size: 64px;
+  color: #352208;
+  padding: 10px;
+  margin-top: 0.2px; /* Espacio superior */
+}

@@ -1,0 +1,10 @@
+.container {
+  background-image: url("https://img.freepik.com/free-vector/hand-drawn-food-background_23-2148433453.jpg?w=1480&t=st=1688437388~exp=1688437988~hmac=b010a65c7fad9d7904913cb977e0a647c5b42c3874bdf1093136f487ad51f3f7");
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

@@ -1,0 +1,74 @@
+.reloadButton {
+  margin: 0 auto;
+  display: block;
+  font-family: Monaco, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  background-color: #3e4a4b;
+  padding: 10px 10px;
+  border: solid #000000 2px;
+  border-radius: 50px;
+  color: white;
+}
+
+.create {
+  border: solid #000000 2px;
+  margin: 0 auto;
+  display: block;
+  width: 100px;
+  text-decoration: none;
+  color: white;
+  margin: 0 auto;
+  display: block;
+  font-family: Monaco, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  background-color: #3e4a4b;
+  padding: 10px 10px;
+  border-radius: 50px;
+}
+
+.titulo {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.navbar {
+  display: flex;
+  padding: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba(248, 128, 112, 0.5);
+}
+
+.mi-select {
+  font-family: Monaco, sans-serif;
+  width: 300px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  padding: 5px;
+  margin-right: 10px; /* Separación horizontal entre selectores */
+  background-color: lightgray; /* Color de fondo */
+}
+
+.mi-select:last-child {
+  margin-right: 0; /* Elimina la separación horizontal para el último selector */
+}
+
+.mi-select option {
+  background-color: lightgreen; /* Color de fondo para las opciones */
+  color: #333;
+}
+
+.food {
+  display: flex;
+  width: 9em;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}

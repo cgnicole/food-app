@@ -1,9 +1,12 @@
-require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
+require("dotenv").config();
+
+//  LAS VARIBLES DE ENTORNO
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
+// CONEXION DE BASE DE DATOS y BACK POR EL ORM
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,
   {
@@ -14,21 +17,21 @@ const sequelize = new Sequelize(
 
 const basename = path.basename(__filename);
 
-const modelDefiners = [];
+// LEÈ TODOS LOS ARCHIVOS DE LA CARPETA MODELS, los requerimos y agregamos al arreglo modelDefiners
 
-// Lee todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
-// se quieren los modelos y especifica que se agregen sin el .js
+const modelDefiners = [];
 fs.readdirSync(path.join(__dirname, "/models"))
   .filter(
     (file) =>
       file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-  )
+  ) // se especifica que se agregen sin el .js
   .forEach((file) => {
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
   });
 
 // Injectamos la conexion (sequelize) a todos los modelos.
 modelDefiners.forEach((model) => model(sequelize));
+
 // Capitalizamos los nombres de los modelos ie: product => Product
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [

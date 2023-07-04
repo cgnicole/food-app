@@ -6,6 +6,7 @@ const getAllDietsController = require("../controllers/getDietsControllers");
 // await palabra clave que indica que se esta realizando una funcion asincrona o deve devolver una promesa
 
 const getDietsHandler = async (req, res) => {
+  // promesa
   try {
     const allDiets = await getAllDietsController();
     res.status(200).json(allDiets);

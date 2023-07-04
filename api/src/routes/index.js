@@ -6,12 +6,12 @@ const { Router } = require("express");
 const dietsRouter = require("./dietsRouter");
 const recipesRouter = require("../routes/recipesRouter");
 
-// creacion enrutador principal para manejar diferentes rutas
+// inizializo el router
 const router = Router();
 
 // Configurar los routers
 
-// aca se encarga de tulizar los enrutadores para las rutas
+// aca se encarga de UTILIZAR los enrutadores para las rutas
 router.use("/diets", dietsRouter);
 router.use("/recipes", recipesRouter);
 

@@ -17,12 +17,18 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// importando el servidor
+// server es express ejecutado
 const server = require("./src/app.js");
+
+// "conn" hace referencia a la conexión a la base de datos
 const { conn } = require("./src/db.js");
 
-// Syncing all the models at once.
+// Sincronizando todos los modelos a la vez.
+
 conn.sync({ alter: true }).then(() => {
-  server.listen(3000, () => {
-    console.log("%s listening at 3000"); // eslint-disable-line no-console
+  server.listen(3001, () => {
+    console.log("sever listening at 3001"); // eslint-disable-line no-console
   });
 });

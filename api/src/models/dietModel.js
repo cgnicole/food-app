@@ -1,3 +1,4 @@
+//selec
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
@@ -9,8 +10,11 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         allowNull: false,
         defaultValue: DataTypes.UUIDV4,
+        // exadecimal
+
         unique: true,
         primaryKey: true,
+        // tabla unica
       },
 
       name: {

@@ -8,6 +8,7 @@ const postRecipeHandler = require("../handlers/postRecipeHandler");
 
 const getRecipeByIdHandler = require("../handlers/getRecipeByIdHandler");
 
+// inizializo el router
 const recipesRouter = Router();
 
 // POST PARA CREAR LA RECIPE
