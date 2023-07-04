@@ -42,6 +42,7 @@ const getAllRecipesController = async () => {
         };
       }),
       health_score: recipe.healthScore,
+      createdDb: recipe.createdDb,
     };
   });
 

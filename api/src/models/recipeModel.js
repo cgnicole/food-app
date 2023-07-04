@@ -53,6 +53,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      createdDb: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
     },
     {
       // timestamps es para que no nos muestre el paso a paso de lo que se esta realizando en la terminal
