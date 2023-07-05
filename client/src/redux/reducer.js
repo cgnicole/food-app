@@ -3,6 +3,7 @@ import {
   FILTER_BY_DIET,
   FILTER_CREATED,
   ORDER_BY_ASC_DESC,
+  GET_NAME_RECIPES,
 } from "./actions";
 
 //CREO MI ESTADO INICIAL, CON LAS
@@ -20,8 +21,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         recipes: action.payload,
-        originalRecipes: action.payload,
       };
+
+    /////////////buscar por nombre////////////////
+
+    case GET_NAME_RECIPES:
+      return {
+        ...state,
+        recipes: action.payload,
+      };
+
+    //////////////////////////////////
 
     case FILTER_BY_DIET:
       const allRecipes = state.recipes;

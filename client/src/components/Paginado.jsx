@@ -1,11 +1,6 @@
 import "../styles/paginado.css";
 
-export default function Paginado({
-  recipesPerPage,
-  allRecipes,
-  currentRecipes,
-  paginado,
-}) {
+export default function Paginado({ recipesPerPage, allRecipes, paginado }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(allRecipes.length / recipesPerPage); i++) {

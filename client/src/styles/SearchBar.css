@@ -1,0 +1,22 @@
+.searchButton {
+  border: 0px;
+  height: 2.83em; /* Ajusta la altura para que coincida con la del campo de entrada */
+  width: 4em;
+  margin: 0 auto;
+  background: #dff251ee;
+  font-weight: 900;
+  font-family: Monaco, sans-serif;
+  border-radius: 0px 15px 15px 0px;
+  padding: 10px;
+  font-size: 15px; /* Agrega "px" al valor de la fuente */
+}
+
+.searchInput {
+  border: 0px;
+  border-radius: 15px 0px 0px 15px;
+  background-color: rgb(158, 158, 158);
+  height: 1.5em;
+  background: #dff251ee;
+  padding: 10px;
+  font-size: 15px; /* Agrega "px" al valor de la fuente */
+}

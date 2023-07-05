@@ -1,9 +1,10 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import getAllRecipes from "../redux/actions";
 import "../styles/NavBar.css";
-// import Filters from "../components/Filters";
+
 import {
   filterRecipesByDiet,
   filterCreated,
@@ -12,6 +13,8 @@ import {
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const [orden, setOrden] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleReloadButton = (event) => {
     event.preventDefault();
@@ -19,74 +22,57 @@ const Navbar = () => {
   };
 
   const handleOrderByAscDesc = (event) => {
-    // Lógica para manejar la opción de ordenar las recetas
     event.preventDefault();
     dispatch(orderByAscDesc(event.target.value));
     console.log(event.target.value);
+    setCurrentPage(1);
+    setOrden(`ordenado ${event.target.value}`);
   };
 
   const handleFilterByOrigin = (event) => {
-    // Lógica para manejar la opción de filtrar por origen de recetas
-
     dispatch(filterCreated(event.target.value));
     console.log(event.target.value);
+    setCurrentPage(1);
   };
 
   const handleFilterByDiet = (event) => {
-    // Lógica para manejar la opción de filtrar por tipo de dieta
-
     dispatch(filterRecipesByDiet(event.target.value));
     console.log(event.target.value);
+    setCurrentPage(1);
   };
-
-  ///////////////////////////////////////////////////////////////////////////////////
 
   return (
     <div className="navbar">
-      <img className="food" src={require("../img/cook.png")} alt="nicole"></img>
-      <button
-        className="reloadButton"
-        onClick={(event) => {
-          handleReloadButton(event);
-        }}
-      >
+      <img className="food" src={require("../img/cook.png")} alt="nicole" />
+
+      <button className="reloadButton" onClick={handleReloadButton}>
         Reload Recipes
       </button>
+
       <Link className="create" to="/recipes">
-        Create
+        Create New Recipe
       </Link>
 
       <div className="filters">
-        {/* Opciones para ordenar las recetas por orden alfabético ascendente y descendente */}
-        <select
-          className="mi-select"
-          onChange={(event) => {
-            handleOrderByAscDesc(event);
-          }}
-        >
+        <select className="mi-select" onChange={handleOrderByAscDesc}>
+          <option value="g"> - Filter By Order 🔤 </option>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
         </select>
 
-        {/* Opciones para filtrar por origen de la receta, si viene de API o de DB */}
-        <select
-          className="mi-select"
-          onChange={(event) => {
-            handleFilterByOrigin(event);
-          }}
-        >
+        <select className="mi-select" onChange={handleFilterByOrigin}>
+          <option value="g"> - Filter By Origin 📊</option>
           <option value="api">Existing</option>
           <option value="created">Created</option>
           <option value="all">All</option>
         </select>
 
-        {/* Opciones para filtrar por tipo de dieta */}
-        <select
-          className="mi-select"
-          onChange={(event) => {
-            handleFilterByDiet(event);
-          }}
-        >
+        <select className="mi-select" onChange={handleFilterByDiet}>
+          <option value="default" disabled defaultValue>
+            Filter By Diet
+          </option>
+
+          <option value="g"> - Filter By Diet 🥗</option>
           <option value="paleolithic">paleolithic</option>
           <option value="vegan">vegan</option>
           <option value="Primal">primal</option>
@@ -99,13 +85,6 @@ const Navbar = () => {
           <option value="fodmap friendly">fodmap friendly</option>
         </select>
       </div>
-
-      {/* 
-      <Filters
-        handleOrderByName={handleOrderByName}
-        handleFilterByOrigin={handleFilterByOrigin}
-        handleFilterByDiet={handleFilterByDiet}
-      /> */}
     </div>
   );
 };
