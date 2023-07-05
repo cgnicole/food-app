@@ -12,6 +12,7 @@ const router = Router();
 // Configurar los routers
 
 // aca se encarga de UTILIZAR los enrutadores para las rutas
+
 router.use("/diets", dietsRouter);
 router.use("/recipes", recipesRouter);
 

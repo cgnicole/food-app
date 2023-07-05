@@ -11,7 +11,7 @@ const Landing = () => {
           <br /> creativity with our
           <br /> delightful recipes
           <Link to="/home">
-            <button className="button">GO!</button>
+            <button className="button">Cook Now!</button>
           </Link>
         </h1>
       </div>

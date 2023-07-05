@@ -10,16 +10,12 @@ const Card = ({ name, image, diets }) => {
 
         <div className="card-diets">
           <p className="card-diets-label">Dieta:</p>
-          <ul className="card-diets-list">
-            {/* // En esa parte del código, se está realizando una verificación
+          <p>{diets}</p>
+          {console.log(diets)}
+          {/* <ul className="card-diets-list"> */}
+          {/* // En esa parte del código, se está realizando una verificación
             antes de ejecutar el método map() */}
-            {Array.isArray(diets) &&
-              diets.map((diet) => (
-                <li key={diet} className="card-diet">
-                  {diet}
-                </li>
-              ))}
-          </ul>
+          {/* </ul> */}
         </div>
       </div>
     </div>

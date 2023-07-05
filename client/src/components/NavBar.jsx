@@ -73,6 +73,7 @@ const Navbar = () => {
           </option>
 
           <option value="g"> - Filter By Diet 🥗</option>
+
           <option value="paleolithic">paleolithic</option>
           <option value="vegan">vegan</option>
           <option value="Primal">primal</option>

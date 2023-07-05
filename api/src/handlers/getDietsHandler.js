@@ -16,3 +16,5 @@ const getDietsHandler = async (req, res) => {
 };
 
 module.exports = getDietsHandler;
+
+// se una función getDietsHandler que obtiene todas las dietas y envía la respuesta correspondiente.

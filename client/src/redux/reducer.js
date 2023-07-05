@@ -1,3 +1,6 @@
+// Un reducer en Redux es una función que especifica cómo cambia el estado
+// Cada caso actualiza el estado según la acción y devuelve un nuevo estado modificado
+
 import {
   GET_RECIPES,
   FILTER_BY_DIET,
@@ -10,6 +13,7 @@ import {
 //PROPIEDADES QUE VOY A TRABAJAR
 const initialState = {
   recipes: [],
+  foods: [],
 };
 
 //EL REDUCER SIEMPRE RECIBE EL ESTADO INICIAL Y LAS ACCIONES, LO
@@ -31,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
         recipes: action.payload,
       };
 
-    //////////////////////////////////
+    /////////////buscar por dieta////////////////
 
     case FILTER_BY_DIET:
       const allRecipes = state.recipes;
@@ -59,27 +63,20 @@ const rootReducer = (state = initialState, action) => {
         recipes: action.payload === "all" ? myRecipes : createdFilter,
       };
 
+    ////////////////asc, desc ///////////////
+
+    //  ([...state.recipes]), se crea una nueva matriz con los mismos elementos que la matriz original
+
     case ORDER_BY_ASC_DESC:
-      const sortedByName =
-        action.payload === "asc"
-          ? state.recipes.sort(function (a, b) {
-              if (a.name > b.name) {
-                return 1;
-              }
-              if (b.name > a.name) {
-                return -1;
-              }
-              return 0;
-            })
-          : state.recipes.sort(function (a, b) {
-              if (a.name > b.name) {
-                return -1;
-              }
-              if (b.name > a.name) {
-                return 1;
-              }
-              return 0;
-            });
+      const sortedByName = [...state.recipes]; // Copia del array original
+
+      sortedByName.sort(function (a, b) {
+        if (action.payload === "asc") {
+          return a.name.localeCompare(b.name); // Orden ascendente A-Z
+        } else {
+          return b.name.localeCompare(a.name); // Orden descendente Z-A
+        }
+      });
 
       return {
         ...state,

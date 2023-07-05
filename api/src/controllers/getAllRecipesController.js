@@ -41,6 +41,7 @@ const getAllRecipesController = async () => {
           steps: steps.step,
         };
       }),
+      diet: recipe.diets,
       health_score: recipe.healthScore,
       createdDb: recipe.createdDb,
     };
