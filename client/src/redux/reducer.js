@@ -9,13 +9,10 @@ import {
   GET_NAME_RECIPES,
 } from "./actions";
 
-const axios = require("axios");
-
 //CREO MI ESTADO INICIAL, CON LAS
 //PROPIEDADES QUE VOY A TRABAJAR
 const initialState = {
   recipes: [],
-  foods: [],
   allRecipes: [],
 };
 
