@@ -9,11 +9,14 @@ import {
   GET_NAME_RECIPES,
 } from "./actions";
 
+const axios = require("axios");
+
 //CREO MI ESTADO INICIAL, CON LAS
 //PROPIEDADES QUE VOY A TRABAJAR
 const initialState = {
   recipes: [],
   foods: [],
+  allRecipes: [],
 };
 
 //EL REDUCER SIEMPRE RECIBE EL ESTADO INICIAL Y LAS ACCIONES, LO
@@ -25,6 +28,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         recipes: action.payload,
+        allRecipes: action.payload,
       };
 
     /////////////buscar por nombre////////////////
@@ -52,15 +56,42 @@ const rootReducer = (state = initialState, action) => {
 
     // ❗️ ACA VA LA LOJICA PARA EL FILTRO DE ORGIFEN DE LA RECETA
 
+    //   const myRecipes = state.recipes; // Verificar si state.recipes es nulo o indefinido y asignar un valor predeterminado en caso afirmativo
+    //   const createdFilter =
+    //     action.payload === "created"
+    //       ? myRecipes.filter((reci) => reci.createdDb)
+    //       : myRecipes.filter((reci) => !reci.createdDb);
+    //   return {
+    //     ...state,
+    //     recipes: action.payload === "all" ? myRecipes : createdFilter,
+    //   };
+
     case FILTER_CREATED:
-      const myRecipes = state.recipes; // Verificar si state.recipes es nulo o indefinido y asignar un valor predeterminado en caso afirmativo
-      const createdFilter =
-        action.payload === "created"
-          ? myRecipes.filter((reci) => reci.createdDb)
-          : myRecipes.filter((reci) => !reci.createdDb);
+      if (action.payload === "created") {
+        const filteredDataBaseRecipes = state.allRecipes.filter(
+          (recipe) => recipe.createdDb
+        );
+
+        return {
+          ...state,
+          recipes: filteredDataBaseRecipes,
+        };
+      }
+
+      if (action.payload === "db") {
+        const filteredApiRecipes = state.allRecipes.filter(
+          (recipe) => recipe.createdDb
+        );
+
+        return {
+          ...state,
+          recipes: filteredApiRecipes,
+        };
+      }
+
       return {
         ...state,
-        recipes: action.payload === "all" ? myRecipes : createdFilter,
+        recipes: state.allRecipes,
       };
 
     ////////////////asc, desc ///////////////
