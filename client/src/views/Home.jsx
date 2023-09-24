@@ -9,6 +9,7 @@ import SearchBar from "../components/SearchBar";
 
 const Home = () => {
   const dispatch = useDispatch();
+
   const allRecipes = useSelector((state) => state.recipes) || [];
 
   const [currentPage, setCurrentPage] = useState(1);
